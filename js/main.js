@@ -9,6 +9,8 @@ Attenzione: nella stessa cella può essere posizionata al massimo una bomba,
 perciò nell’array delle bombe non potranno esserci due numeri uguali.
 In seguito l'utente clicca su una cella: se il numero è presente nella lista dei numeri generati - 
 abbiamo calpestato una bomba - la cella si colora di rosso e la partita termina.
+
+
 Altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
 La partita termina quando il giocatore clicca su una bomba o quando raggiunge il 
 numero massimo possibile di numeri consentiti (ovvero quando ha rivelato tutte le celle che non sono bombe).
@@ -29,7 +31,6 @@ Di cosa ho bisogno per generare i numeri?
 Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dati giusti.
 Le validazioni e i controlli possiamo farli anche in un secondo momento. */
 const bombs = 16;
-//let squares = [];
 let isGameOver = false;
 
 document.getElementById("play-button").addEventListener("click", function () {
@@ -56,12 +57,29 @@ function createNewGame() {
     newBox.classList.add("square", shuffledArray[i]);
 
     newBox.addEventListener("click", function () {
-      newBox.classList.toggle("color");
-      console.log(i + 1);
+      // contains return true is the token is present
+      if (isGameOver) return;
+
+      if (newBox.classList.contains("bombs")) {
+        newBox.classList.add("bomb");
+        gameOver();
+        //return;
+      } else {
+        //newBox.classList.toggle("color");
+        newBox.classList.toggle("color");
+        console.log(i + 1);
+      }
     });
 
     // insert the element on innerHTML of newBox (i + 1);
-    newBox.innerHTML = i + 1;
+    newBox.innerHTML = i + 0;
     gridContainer.append(newBox);
   }
+}
+
+// game over
+function gameOver() {
+  isGameOver = true;
+  alert("You loose!");
+  console.log("Game over! Try again!");
 }

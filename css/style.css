@@ -37,12 +37,16 @@ div.square {
   color: azure;
 }
 
-.bombs {
+/* .bombs {
+  background-color: red;
+} */
+
+.bomb {
   background-color: red;
 }
 
 div.square.color {
-  background-color: blueviolet;
+  background-color: blue;
 }
 
 div#grid-container div.square {
