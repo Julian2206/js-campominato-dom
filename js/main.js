@@ -32,6 +32,7 @@ Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dat
 Le validazioni e i controlli possiamo farli anche in un secondo momento. */
 const bombs = 16;
 let isGameOver = false;
+//let squares = [];
 
 document.getElementById("play-button").addEventListener("click", function () {
   createNewGame();
@@ -66,13 +67,14 @@ function createNewGame() {
         //return;
       } else {
         //newBox.classList.toggle("color");
-        newBox.classList.toggle("color");
+        newBox.classList.add("checked");
         console.log(i + 1);
       }
     });
 
     // insert the element on innerHTML of newBox (i + 1);
     newBox.innerHTML = i + 0;
+    //squares.push("checked");
     gridContainer.append(newBox);
   }
 }
@@ -83,3 +85,9 @@ function gameOver() {
   alert("You loose!");
   console.log("Game over! Try again!");
 }
+
+/* function userWin() {
+  isGameOver = true;
+  alert("You Win!");
+  console.log("Try again!");
+} */

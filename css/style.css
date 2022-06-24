@@ -37,17 +37,21 @@ div.square {
   color: azure;
 }
 
-/* .bombs {
+.bombs {
   background-color: red;
-} */
+}
+
+.checked {
+  background-color: blue;
+}
 
 .bomb {
   background-color: red;
 }
 
-div.square.color {
+/* div.square.color {
   background-color: blue;
-}
+} */
 
 div#grid-container div.square {
   border: 2px solid white;
